@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "Database.php"; // Make sure this defines $pdo or adjust to use mysqli
 
 try {
@@ -28,6 +29,11 @@ try {
             <li>
                 <strong><?= htmlspecialchars($class['name']) ?></strong><br>
                 <?= nl2br(htmlspecialchars($class['description'])) ?>
+                <form action="class-signup.php" method="POST" style="display:inline">
+                    <input type="hidden" name="class_id" value="<?=$class['id']; ?>" />
+                    <button type="submit">Register</button>
+                </form>
+                <hr />
             </li>
         <?php endforeach; ?>
     </ul>

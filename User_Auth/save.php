@@ -23,7 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $sql = "INSERT INTO users (email, first_name, last_name, username, password) VALUES ( '$email', '$username', '$first_name', '$last_name', '$hashed_password' )";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Record saved successfully!";
+        $_SESSION["user_name"] = $first_name;
+        $_SESSION["user_id"] = $conn->insert_id;
+        header("Location: index.php");
     } else {
         echo "Error: " . $conn->error;
     }
