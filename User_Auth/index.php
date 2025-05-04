@@ -9,8 +9,8 @@ session_start();
 <body>
     <h1>Welcome to Our Site</h1>
 
-    <?php if (isset($_SESSION['username'])): ?>
-        <p>Hello, <?= htmlspecialchars($_SESSION['username']) ?>!</p>
+    <?php if (isset($_SESSION['first_name'])): ?>
+        <p>Hello, <?= htmlspecialchars($_SESSION['first_name']) ?>!</p>
         <a href="logout.php">Logout</a>
     <?php else: ?>
         <a href="login.php">Login</a> | <a href="register.php">Register</a>
